@@ -2,182 +2,217 @@
 
 ## Overview
 
-This project implements **Customer Segmentation** using unsupervised learning techniques on the Mall Customers dataset. The goal is to identify distinct customer groups based on features such as **Annual Income** and **Spending Score**, enabling targeted marketing strategies. The notebook utilizes **K-Means** and **DBSCAN** clustering algorithms, along with optimization techniques as the **Elbow Method** and **Silhouette Score** to determine the optimal number of clusters.
+This repository hosts a professional machine learning project focused on **customer segmentation** using unsupervised learning techniques on the [Mall Customers dataset](https://www.kaggle.com/datasets/vjchoudhary7/customer-segmentation-tutorial-in-python) from Kaggle. The goal is to identify distinct customer groups based on **Annual Income** and **Spending Score** to enable targeted marketing strategies. The project leverages **K-Means** and **DBSCAN** clustering, optimized with the **Elbow Method** and **Silhouette Score**, and includes advanced data preprocessing and high-quality visualizations.
+
+**Key Objectives**:
+- Clean and preprocess the dataset for robust analysis.
+- Visualize feature relationships and distributions.
+- Apply and optimize clustering algorithms.
+- Derive actionable business insights from cluster analysis.
+
+**Dataset**: `Mall_Customers.csv` (included; or can be downloaded from Kaggle).
 
 ## Features
 
-- **Exploratory Data Analysis (EDA)**: Visualizations including correlation heatmaps, pairplots by gender, and scatter plots to understand customer data distributions and relationships.
-- **Data Preprocessing**: Handling missing values, encoding categorical variables (e.g., Gender), and scaling features for robust clustering.
+- **Exploratory Data Analysis (EDA)**: Correlation heatmaps, gender-segmented pairplots, and scatter plots to uncover patterns.
+- **Data Preprocessing**: Handles duplicates, missing values, categorical encoding (e.g., Gender), and feature scaling.
 - **Clustering Algorithms**:
-  - **K-Means**: Segments customers into 5 clusters based on income and spending behavior.
-  - **DBSCAN**: Identifies noise points and 7 clusters based on density, providing an alternative segmentation approach.
-- **Cluster Optimization**: Uses the Elbow Method (elbow at K=5) and Silhouette Score (peak at K=5 with score \~0.55) to determine the optimal number of clusters.
-- **Visualizations**: High-resolution plots (saved in the `plots` folder) including cluster scatter plots with centroids, Elbow curves, Silhouette score visualizations, raw data scatter, DBSCAN clusters, and pairplots.
-- **Cluster Analysis**: Computes average Annual Income and Spending Score per cluster to derive actionable marketing insights, such as targeting high-income low-spenders with premium offers.
+  - **K-Means**: Segments customers into 5 optimized clusters with centroid visualization.
+  - **DBSCAN**: Detects dense clusters and noise for alternative segmentation.
+- **Optimization**: Uses Elbow Method (optimal K=5) and Silhouette Score (~0.55 at K=5) for cluster validation.
+- **Visualizations**: High-resolution plots saved in `plots/` (e.g., cluster scatters, optimization curves).
+- **Insights**: Computes per-cluster averages to guide marketing strategies.
+- **Reproducibility**: Comprehensive notebook with code, documentation, and saved outputs.
 
 ## Table of Contents
 
-- Installation
-- Usage
-- Project Structure
-- Results
-- Contributing
-- License
-- Contact
+- [Overview](#overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Methodology](#methodology)
+- [Results](#results)
+- [Future Improvements](#future-improvements)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+- [Acknowledgments](#acknowledgments)
 
 ## Installation
 
 ### Prerequisites
 
-- Python 3.8+
+- **Python**: 3.8+ ([download](https://www.python.org/downloads/)).
+- **Git**: For cloning ([download](https://git-scm.com/downloads)).
+- **Jupyter Notebook**: For local execution (`pip install jupyter`).
+- **Kaggle Account**: For dataset access and online execution.
 
-- Jupyter Notebook or Kaggle account
+### Setup
 
-- Required libraries:
-
-  ```plaintext
-  pandas
-  numpy
-  scikit-learn
-  seaborn
-  matplotlib
-  ```
-
-### Steps
-
-1. **Clone the repository**:
-
+1. **Clone the Repository**:
    ```bash
    git clone https://github.com/Abdelrahman2610/Customer-Segmentation-Using-Unsupervised-learning.git
    cd Customer-Segmentation-Using-Unsupervised-learning
    ```
 
-2. **Install dependencies**:
-
+2. **Install Dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Download the dataset**:
+3. **Download the Dataset**:
+   - Get `Mall_Customers.csv` from [Kaggle](https://www.kaggle.com/datasets/vjchoudhary7/customer-segmentation-tutorial-in-python), or see the folder data for the version worked with
 
-   - Obtain the Mall Customers dataset from Kaggle.
-   - Place the `Mall_Customers.csv` file in the project directory.
+4. **Run on Kaggle** (Alternative):
+   - Open the [Kaggle notebook](https://www.kaggle.com/code/abdelrahmansalah2002/customer-segmentation-using-unsupervised-learning).
+   - Add the dataset to your Kaggle workspace.
+   - Click "Run All" to execute.
 
-4. **Run the notebook**:
-
-   ```bash
-   Jupyter Notebook Customer-Segmentation-Using-Unsupervised-learning.ipynb
-   ```
-
-   Alternatively, upload the notebook to Kaggle and run it in a Kaggle environment.
+### Dependencies
+See `requirements.txt`:
+```
+pandas==2.0.3
+numpy==1.24.3
+scikit-learn==1.3.0
+seaborn==0.12.2
+matplotlib==3.7.2
+```
 
 ## Usage
 
-1. **Open the notebook** in Jupyter or Kaggle.
+1. **Open the Notebook**:
+   - Locally: `jupyter notebook notebooks/Customer-Segmentation-Using-Unsupervised-Learning.ipynb`.
+   - On Kaggle: Use the provided link.
 
-2. **Run the cells** sequentially to:
+2. **Run the Notebook**:
+   - Update the data path if needed (e.g., `file_path = 'data/Mall_Customers.csv'`).
+   - Execute cells to:
+     - Load and preprocess data.
+     - Perform EDA and save visualizations.
+     - Apply clustering and optimization.
+     - Analyze clusters for insights.
 
-   - Load and preprocess the dataset.
-   - Perform EDA with visualizations saved to the `plots` folder.
-   - Apply K-Means and DBSCAN clustering.
-   - Evaluate clusters using the Elbow Method and Silhouette Score.
-   - Analyze cluster averages for marketing insights.
+3. **View Outputs**:
+   - Visualizations saved in `plots/` (e.g., `kmeans_clusters.png`).
+   - Console outputs include dataset info and cluster metrics.
 
-3. **View results**:
-
-   - Visualizations are saved as PNG files in the `plots` folder (e.g., `plots/kmeans_clusters.png`, `plots/elbow_method.png`, `plots/silhouette_scores.png`, `plots/dbscan_clustering.png`, `plots/raw_data_scatter.png`, `plots/pairplot_gender.png`).
-   - Cluster analysis results are displayed in the notebook output.
-
-Example command to start Jupyter Notebook:
-
+Example:
 ```bash
-jupyter notebook
+jupyter notebook notebooks/Customer-Segmentation-Using-Unsupervised-Learning.ipynb
 ```
 
 ## Project Structure
 
 ```
-customer-segmentation/
-│
-├── customer-segmentation.ipynb  # Main Jupyter notebook
-├── Mall_Customers.csv           # Dataset 
-├── plots/                       # Folder for saved visualizations
-│   ├── kmeans_clusters.png
-│   ├── kmeans_centroids.png
-│   ├── elbow_method.png
-│   ├── silhouette_scores.png
-│   ├── dbscan_clustering.png
-│   ├── raw_data_scatter.png
-│   ├── pairplot_gender.png
-│   └── ...
-├── requirements.txt             # Python dependencies
-└── README.md                    # This file
+Customer-Segmentation-Using-Unsupervised-Learning/
+├── notebooks/
+│   └── customer-segmentation.ipynb          # Jupyter notebook with code and outputs
+├── data/
+│   └── Mall_Customers.csv                   # Dataset 
+├── plots/
+│   ├── kmeans_cluster_summary_bar.png       # K-Means cluster summary
+│   ├── kmeans_clusters_with_centroids.png   # K-Means with centroids
+│   ├── elbow_method_wcss.png                # Elbow curve
+│   ├── silhouette_scores.png                # Silhouette scores
+│   ├── dbscan_clustering.png                # DBSCAN clusters
+│   ├── scatter_income_vs_spending.png       # Raw data scatter
+│   ├── pairplot_features_by_gender.png      # Pairplot by Gender
+│   └── kmeans_clustering.png                # K-Means cluster
+├── requirements.txt                         # Dependencies
+└── README.md                                # This file
 ```
+
+## Methodology
+
+### Data Loading and Cleaning
+- Load `Mall_Customers.csv` with Pandas.
+- Remove duplicates and handle missing values.
+- Encode categorical variables (e.g., Gender via one-hot).
+- Scale numerical features using StandardScaler.
+
+### Data Visualization
+- Scatter plots for raw data (Annual Income vs. Spending Score).
+- Pairplots by Gender for feature distributions.
+- Correlation heatmaps for relationships.
+- Plots saved to `plots/` with inline display.
+
+### Clustering
+- **K-Means**: Fit on scaled data with 5 clusters; visualize centroids.
+- **DBSCAN**: Tune parameters to identify dense clusters and noise.
+
+### Evaluation
+- **Elbow Method**: Identify K=5 via WSS plot.
+- **Silhouette Score**: Peak at ~0.55 for K=5.
+- Compare K-Means and DBSCAN for robustness.
+
+### Outputs
+- Cluster assignments added to dataset.
+- Per-cluster averages computed for insights.
+- Visualizations exported as PNGs.
 
 ## Results
 
-- **K-Means Clustering**:
-  - Optimal number of clusters: 5 (based on Elbow Method and Silhouette Score \~0.55 at K=5).
-  - Clusters reveal distinct customer groups with the following approximate averages (note: cluster labels are arbitrary):
+### K-Means Clustering
+- **Optimal Clusters**: 5 (Elbow Method, Silhouette Score ~0.55).
+- **Cluster Averages**:
 
-| Cluster | Average Annual Income (k$) | Average Spending Score (1-100) | Description |
-| --- | --- | --- | --- |
-| 0 | 55 | 49 | Medium income, medium spending – Balanced customers, target with general promotions. |
-| 1 | 86 | 18 | High income, low spending – Affluent savers, attract with luxury discounts. |
-| 2 | 26 | 20 | Low income, low spending – Budget-conscious, offer value deals. |
-| 3 | 26 | 79 | Low income, high spending – Impulse buyers, promote affordable luxuries. |
-| 4 | 88 | 82 | High income, high spending – Premium customers, focus on loyalty programs. |
+| Cluster | Avg. Annual Income (k$) | Avg. Spending Score (1-100) | Description |
+|---------|-------------------------|-----------------------------|-------------|
+| 0       | 55                      | 49                          | Medium income, medium spending – Balanced; general promotions. |
+| 1       | 86                      | 18                          | High income, low spending – Affluent savers; luxury discounts. |
+| 2       | 26                      | 20                          | Low income, low spending – Budget-conscious; value deals. |
+| 3       | 26                      | 79                          | Low income, high spending – Impulse buyers; affordable luxuries. |
+| 4       | 88                      | 82                          | High income, high spending – Premium; loyalty programs. |
 
-- **DBSCAN Clustering**:
-  - Identifies 7 clusters plus noise points, with the following averages:
+![K-Means Clusters Summary](plots/kmeans_cluster_summary_bar.png)
 
-| Cluster | Average Annual Income (k$) | Average Spending Score (1-100) |
-| --- | --- | --- |
-| \-1 (Noise) | Varies | Varies |
-| 0 | 23.17 | 74.58 |
-| 1 | 19.60 | 6.60 |
-| 2 | 22.43 | 34.43 |
-| 3 | 55.23 | 48.58 |
-| 4 | 79.53 | 83.13 |
-| 5 | 75.93 | 10.07 |
-| 6 | 88.78 | 17.00 |
+### DBSCAN Clustering
+- **Clusters**: 7 + noise.
+- **Averages**:
 
-- **Visualizations**:
-  - Scatter plots show clear separation of clusters based on Annual Income and Spending Score.
-  - Pairplots and histograms highlight relationships and distributions by features like Age, Gender, Income, and Spending Score.
-- **Insights**:
-  - The segments can inform marketing: e.g., promotions for low-spenders or loyalty programs for high-value customers.
-  - Limitations: Analysis focuses on two features; adding Age or Gender could improve granularity.
-  - Future Work: Explore hierarchical clustering or integrate segments into a recommendation system.
+| Cluster | Avg. Annual Income (k$) | Avg. Spending Score (1-100) |
+|---------|-------------------------|-----------------------------|
+| -1 (Noise) | Varies               | Varies                      |
+| 0       | 23.17                   | 74.58                       |
+| 1       | 19.60                   | 6.60                        |
+| 2       | 22.43                   | 34.43                       |
+| 3       | 55.23                   | 48.58                       |
+| 4       | 79.53                   | 83.13                       |
+| 5       | 75.93                   | 10.07                       |
+| 6       | 88.78                   | 17.00                       |
 
-![K-Means Clusters](plots/kmeans_clusters.png)\## Contributing
+![DBSCAN Clusters](plots/dbscan_clustering.png)
 
-Contributions are welcome! To contribute:
+### Insights
+- Clear customer segments enable targeted strategies.
+- Visualizations show distinct clusters; pairplots highlight gender trends.
+- Limitations: Two-feature focus; small dataset.
 
-1. **Fork the repository**.
+## Future Improvements
 
-2. **Create a new branch**:
+- Explore Hierarchical Clustering or Gaussian Mixture Models.
+- Include Age or Gender in clustering for richer segments.
+- Develop an interactive dashboard with Streamlit or Dash.
+- Scale to larger datasets or real-time pipelines.
 
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
+## Contributing
 
-3. **Make changes** and commit:
+Contributions are welcome! Steps:
+1. Fork the repository.
+2. Create a branch: `git checkout -b feature/your-feature`.
+3. Commit changes: `git commit -m "Add feature"`.
+4. Push: `git push origin feature/your-feature`.
+5. Open a Pull Request.
 
-   ```bash
-   git commit -m "Add your feature description"
-   ```
+## Contact
 
-4. **Push to your branch**:
+- **Author**: Abdelrahman Mohamed Salah
+- **GitHub**: [Abdelrahman2610](https://github.com/Abdelrahman2610)
+- **Kaggle**: [abdelrahmansalah2002](https://www.kaggle.com/abdelrahmansalah2002)
 
-   ```bash
-   git push origin feature/your-feature-name
-   ```
+## Acknowledgments
 
-5. **Open a Pull Request** on GitHub.
-
-Please adhere to the Code of Conduct and ensure code quality with clear comments and documentation.
-
----
-
-*Built with ❤️ by Abdelrahman Salah*
+- Dataset: [Kaggle Mall Customers](https://www.kaggle.com/datasets/vjchoudhary7/customer-segmentation-tutorial-in-python).
+- Libraries: Pandas, Scikit-learn, Matplotlib, Seaborn.
+- Community tutorials on unsupervised learning.
