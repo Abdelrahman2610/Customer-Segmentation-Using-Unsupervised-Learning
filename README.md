@@ -82,7 +82,7 @@ matplotlib==3.7.2
 ## Usage
 
 1. **Open the Notebook**:
-   - Locally: `jupyter notebook notebooks/Customer-Segmentation-Using-Unsupervised-Learning.ipynb`.
+   - Locally: `jupyter notebook notebooks/customer-segmentation-using-unsupervised-learning.ipynb`.
    - On Kaggle: Use the provided link.
 
 2. **Run the Notebook**:
@@ -99,7 +99,7 @@ matplotlib==3.7.2
 
 Example:
 ```bash
-jupyter notebook notebooks/Customer-Segmentation-Using-Unsupervised-Learning.ipynb
+jupyter notebook notebooks/customer-segmentation-using-unsupervised-learning.ipynb
 ```
 
 ## Project Structure
@@ -147,7 +147,7 @@ Customer-Segmentation-Using-Unsupervised-Learning/
 - Compare K-Means and DBSCAN for robustness.
 
 ### Outputs
-- Cluster assignments added to dataset.
+- Cluster assignments added to the dataset.
 - Per-cluster averages computed for insights.
 - Visualizations exported as PNGs.
 
